@@ -91,13 +91,7 @@ def main():
         print("Intruder Detected")
 
 if __name__ == "__main__":
-    main()import time
-import json
-import numpy as np
-from pynput import keyboard
-import sys
-
-# Parameters
+    main()
 BASELINE_FILE = "baseline_profile.json"
 TARGET_PASSWORD = "math"
 THRESHOLD = 2.0  # mean absolute Z-score threshold
