@@ -47,7 +47,18 @@ python enrollment.py
 Follow the on-screen instructions to type your password several times. The system will record your keystroke timings and save your profile to `baseline_profile.json`.
 
 ### Authentication
-(If you have an authentication script, describe its usage here.)
+Run the authentication script to verify your identity using your typing pattern:
+```bash
+python authenticate.py
+```
+Type the password (default: `math`) when prompted. The system will compare your keystroke timings to your baseline profile and print either `Access Granted` or `Intruder Detected` based on the statistical analysis.
+
+### Visualization
+Run the visualization script to see bell curves (normal distributions) of your baseline data and your login attempt:
+```bash
+python visualize_keystroke.py
+```
+Type the password (default: `math`) when prompted. The script will display bell curves for each dwell and flight timing, with your login attempt marked as a red point for easy anomaly detection.
 
 ## How It Works
 - The system records the time each key is pressed and released.
@@ -55,9 +66,22 @@ Follow the on-screen instructions to type your password several times. The syste
 - After several samples, it computes the mean and standard deviation for each metric.
 - During authentication, it compares new samples to the baseline profile to determine if the typing pattern matches.
 
+## Workflow
+1. **Enroll:**
+	- Run `python enrollment.py` and follow the prompts to create your baseline profile.
+2. **Authenticate:**
+	- Run `python authenticate.py` and type the password when prompted to verify your identity.
+3. **Visualize:**
+	- Run `python visualize_keystroke.py` to see how your login attempt compares to your baseline.
+
+All scripts use the same `baseline_profile.json` and password (default: `math`).
+
 ## Requirements
 - Python 3.7+
 - See `requirements.txt` for dependencies
+
+## License
+MIT License
 
 ## License
 MIT License
